@@ -70,7 +70,7 @@ Student-Grade-System-V2/
 ├── README.md                       # Project Documentation & Diagrams
 ├── TECHNICAL_DECISIONS.md          # Architectural & Technical Decisions
 └── .gitignore                      # Files to ignore (e.g __pycache__)
-
+```
 
 ## Installation and Usage
    git clone https://github.com/YourUsername/Student-Grade-System-V2.git
