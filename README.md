@@ -33,7 +33,7 @@ The project follows a strict **Layered Architecture** (Separation of Concerns):
 ---
 
 ## Project Structure
-
+```
 Student-Grade-System-V2/
 │
 ├── .github/                        # GitHub Actions & CI/CD
