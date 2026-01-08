@@ -74,7 +74,7 @@ Student-Grade-System-V2/
 ```
 
 ## Installation and Usage
-   git clone https://github.com/YourUsername/Student-Grade-System-V2.git
+   git clone https://github.com/Ali-dev-25/Student-Grade-System-V2.git
 cd Student-Grade-System-V2
 
 ## Install Dependencies
