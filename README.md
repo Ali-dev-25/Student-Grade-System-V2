@@ -118,9 +118,9 @@ erDiagram
 
 ## Auther
 - Ali AL-Hatami
-- Software Engineering Student | Python Developer
+  Software Engineering Student | Python Developer
 
-- GitHub: Ali-dev-25
-- Project Type: Technical Assessment
+  GitHub: Ali-dev-25
+  Project Type: Technical Assessment
 
 
