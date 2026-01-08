@@ -63,6 +63,8 @@ cd Student-Grade-System-V2
 - to run the 15 automated tests:
     pytest
 
+## Aouther
+   Ali AL-Hatami
 
 ```markdown
 ## Database Diagram
