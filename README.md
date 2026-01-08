@@ -117,10 +117,10 @@ erDiagram
 - This repository is configured with GitHub Actions. Every push to the main branch automatically runs the test suite to ensure no regressions are introduced.
 
 ## Auther
-- Ali AL-Hatami
+- Ali AL-Hatami: 
   Software Engineering Student | Python Developer
 
-  GitHub: Ali-dev-25
+  GitHub: Ali-dev-25  
   Project Type: Technical Assessment
 
 
