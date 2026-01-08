@@ -87,16 +87,16 @@ cd Student-Grade-System-V2
 ## How to Test
 - to run the 15 automated tests:
     pytest
-
+```
  Expected Output
        tests/test_modles.py .....  [33%]
 tests/test_service.py ..... [66%]
 tests/test_export.py .....  [100%]
 ================= 15 passed in 0.xxs =================
-
+```
 
 ## Database Diagram
-
+```
 - just one table in the System
 erDiagram
     STUDENTS {
@@ -111,7 +111,7 @@ erDiagram
         int wireless_net "0-100"
         int comm_skill "0-100"
     }
-
+```
 ### CI/CD (GitHub Actions)
 - This repository is configured with GitHub Actions. Every push to the main branch automatically runs the test suite to ensure no regressions are introduced.
 
