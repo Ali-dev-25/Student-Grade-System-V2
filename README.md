@@ -1,50 +1,36 @@
-# 🎓 Student Grade System V2
-
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white)
-![Flet](https://img.shields.io/badge/Flet-Framework-purple?style=for-the-badge)
-![Tests](https://img.shields.io/badge/Tests-15%20Passed-2ea44f?style=for-the-badge)
-![Build](https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge)
+# Student Grade System V2
 
 A robust Desktop Application built with **Python** and **Flet** to manage student records, calculate GPAs, and generate Excel reports. This project is engineered using **Layered Architecture** to ensure clean code, scalability, and data integrity.
 
 ---
 
-## 📹 Project Demo
-> **[ اضغط هنا لمشاهدة فيديو استعراض المشروع ](رابط_الفيديو_هنا)**  
-> *(Click the link above to watch the system in action: Data Validation, Excel Export, and UI Interaction)*
-
----
-
-## 🚀 Key Features
-
-### 1. 🏗️ Robust Architecture
+## Key Features
+### 1. Robust Architecture
 The project follows a strict **Layered Architecture** (Separation of Concerns):
 - **UI Layer:** Handles user interaction (Flet).
 - **Service Layer:** Bridges the UI and Database, handling business logic.
 - **Model Layer:** Enforces data validation rules.
 - **Database Layer:** Manages SQLite connections securely using Context Managers.
 
-### 2. 🛡️ Data Integrity & Validation
+### 2. Data Integrity & Validation
 - **Real-time Validation:** Prevents invalid inputs before they reach the database.
 - **Constraints:**
   - Student ID & Phone must be exactly **9 digits**.
   - Grades must be between **0 and 100**.
   - Prevents duplicate Student IDs.
 
-### 3. 📊 Professional Excel Export
+### 3. Professional Excel Export
 - Generates formatted `.xlsx` reports using `openpyxl`.
 - **Auto-fit Columns:** Automatically adjusts column width based on content.
 - Opens the file automatically after export.
 
 
 
-### 4. 🧪 Automated Testing (CI/CD)
+### 4. Automated Testing (CI/CD)
 - **15 Unit Tests** covering Models, Services, and Export logic using `pytest`.
 - **GitHub Actions:** Automatically runs tests on every push to ensure code stability.
 
 ---
-
-### 4. 🧪 Automated Testing (CI/CD)
 
 ## Project Structure
 
