@@ -15,7 +15,8 @@ The project follows a strict **Layered Architecture** (Separation of Concerns):
 ### 2. Data Integrity & Validation
 - **Real-time Validation:** Prevents invalid inputs before they reach the database.
 - **Constraints:**
-  - Student ID & Phone must be exactly **9 digits**.
+  - Student ID must be exactly **7 digits**.
+  - Student Phone must be exactly **9 digits**.
   - Grades must be between **0 and 100**.
   - Prevents duplicate Student IDs.
 
@@ -117,9 +118,9 @@ erDiagram
 
 ## Auther
 - Ali AL-Hatami
-  Software Engineering Student | Python Developer
+- Software Engineering Student | Python Developer
 
-GitHub: Ali-dev-25
-Project Type: Technical Assessment
+- GitHub: Ali-dev-25
+- Project Type: Technical Assessment
 
 
