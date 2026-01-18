@@ -42,6 +42,7 @@ def main_view(page: ft.Page):
             ft.DataColumn(ft.Text("Communication-Skills"), numeric=True),
             ft.DataColumn(ft.Text("المعدل"), numeric=True),
             ft.DataColumn(ft.Text("التقدير")),
+            ft.DataColumn(ft.Text("حذف"))
         ],
         rows=[],
         border=ft.border.all(1, "grey"),
@@ -74,9 +75,13 @@ def main_view(page: ft.Page):
         page.update()
         
 #-----------------------------
-    def load_students():
+    def load_students(custom_list=None):
         """جلب الطلاب من السيرفس وتحديث الجدول"""
-        students = service.get_all_students()
+        if custom_list is None:
+            students = service.get_all_students()
+        else:
+            students = custom_list
+            
         students_table.rows.clear()
         
         for std in students:
@@ -109,11 +114,40 @@ def main_view(page: ft.Page):
                         padding=5,
                         border_radius=5
                     )),
+                    ft.DataCell(
+                        ft.IconButton(
+                            icon=ft.Icons.DELETE, 
+                            icon_color="red",
+                            # نستخدم lambda لنمرر رقم الطالب المحدد للدالة
+                            on_click=lambda e, id=std.std_id: delete_click(id)
+                        )
+                    )
                 ])
             )
         page.update()
     
 #---------------------------------------
+
+    def delete_click(std_id):
+        """عند الضغط على زر الحذف"""
+        # يمكن إضافة نافذة تأكيد هنا مستقبلاً، الآن سنحذف مباشرة للتبسيط
+        success, msg = service.delete_student(std_id)
+        if success:
+            show_message(msg, "green")
+            load_students() # تحديث الجدول لإخفاء المحذوف
+        else:
+            show_message(msg, "red")
+    #-----------------------
+
+    def run_search(query):
+        """عند الكتابة في مربع البحث"""
+        if not query:
+            load_students() # إذا المربع فارغ، اعرض الكل
+        else:
+            results = service.search_students(query)
+            load_students(results) # اعرض نتائج البحث فقط
+  #-----------------------
+  
     def add_student_click(e):
         try:
             #  تجميع البيانات
@@ -124,10 +158,8 @@ def main_view(page: ft.Page):
                 #التحققمن الالقيم قبل التحويل
                 if not val.isdigit():
                     show_message(f"Wrong! please, enter numbers in {field.label}")
-                    print("[DEBUG] المدخلات ليست ارقاما")
                     return
                 marks[key] = int(val)
-            print("[DEBUG] 2. تم تجميع الدرجات بنجاح")
 
             # 2. إنشاء كائن الطالب (Model)
             new_student = Student(
@@ -206,6 +238,8 @@ def main_view(page: ft.Page):
         page.clean()
         load_students() # تحديث البيانات قبل العرض
         
+        search_field = ft.TextField(label = "البحث بالاسم او الرقم الجامعي", width=300, icon=ft.Icons.SEARCH, on_change=lambda e: run_search(e.control.value))
+        
         page.add(
             ft.Column([
                 ft.Row([
@@ -214,6 +248,8 @@ def main_view(page: ft.Page):
                 ], alignment=ft.MainAxisAlignment.START),
                 
                 ft.Divider(),
+                # بحث
+                ft.TextField(label="🔍 ابحث عن طالب...", on_change=lambda e: run_search(e.control.value)),
                 
                 # وضع الجدول داخل حاوية مع تفعيل Scroll
                 ft.Card(
