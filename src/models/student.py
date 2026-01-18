@@ -45,6 +45,6 @@ class Student:
         for mark in marks:
             if not isinstance(mark,(int,float)):
                 raise ValueError("Marks must be numbers")
-            if not(0 <= mark <= 100):
+            if not(mark >= 0 and mark<=100):
                 raise ValueError(f"Mark {mark} is out of valid range (0-100).")
 
