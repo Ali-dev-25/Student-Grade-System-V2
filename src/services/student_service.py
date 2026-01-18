@@ -137,3 +137,37 @@ class StudentService:
             import traceback
             traceback.print_exc()
             return False, f"Export Error: {e}"
+        
+    #-----------------------
+    def delete_student(self, std_id):
+        """Delete a student by ID"""
+        query = "DELETE FROM students WHERE std_id = ?"
+        try:
+            with self.db.get_connection() as conn:
+                cursor = conn.cursor()
+                cursor.execute(query, (std_id,))
+                if cursor.rowcount == 0:
+                    return False, "Student ID not found!."
+                conn.commit()
+            return True, "Student deleted successfully"
+        except Exception as e:
+            return False, f"Deleted Erorr: {e}."
+        
+    #------------
+    def search_students(self, search_term):
+        """Search students by ID or name"""
+        query = "SELECT * From students WHERE std_id LIKE ? OR name LIKE ?"
+        
+        term =f"%{search_term}%"
+        students = []
+        try:
+            with self.db.get_connection() as conn:
+                cursor = conn.cursor()
+                cursor.execute(query,(term, term))
+                rows = cursor.fetchall()
+                for row in rows:
+                    students.append(Student(*row))
+        except Exception as e:
+            print (f"Error searching students: {e}")
+            return []
+        return students
